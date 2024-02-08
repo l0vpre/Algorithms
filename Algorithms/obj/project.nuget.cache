@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0VK7JGQQTgnUx+GgJ6ARw0ogQi8C3bmgsOechdqceCrcMhv2orNNRnt3L7K+Rv4j3FGAsFFXvi/k8cEh+kmFZQ==",
+  "success": true,
+  "projectFilePath": "/home/viktoria/Documents/Algorithms/Algorithms/Algorithms.csproj",
+  "expectedPackageFiles": [
+    "/home/viktoria/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.1/microsoft.aspnetcore.app.ref.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
