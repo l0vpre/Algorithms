@@ -209,7 +209,38 @@ public static class ArraySortExtentions
     private static void HeapSortInplace<T>(this T[] array, int start, int count)
     where T : IComparable
     {
-        throw new NotImplementedException();
+        for (int rootIndex = count / 2 - 1; rootIndex >= 0; rootIndex--)
+        {
+            array.DownHeap(rootIndex, count, start);
+        }
+        for (int current = count - 1; current > 0; current--)
+        {
+            (array[0+start], array[current+start]) = (array[current+start], array[0+start]);
+            array.DownHeap(0, current, start);
+        }
+    }
+
+    private static void DownHeap<T>(this T[] array, int rootIndex, int count, int start)
+    where T : IComparable
+    {
+        int leftIndex = rootIndex * 2 + 1;
+        int rightIndex = rootIndex * 2 + 2;
+        int largestIndex = rootIndex;
+
+        if (leftIndex < count && array[largestIndex+start].CompareTo(array[leftIndex+start]) < 0)
+        {
+            largestIndex = leftIndex;
+        }
+        if (rightIndex < count && array[largestIndex+start].CompareTo(array[rightIndex+start]) < 0)
+        {
+            largestIndex = rightIndex;
+        }
+        if (largestIndex != rootIndex)
+        {
+            (array[largestIndex+start], array[rootIndex+start]) = (array[rootIndex+start], array[largestIndex+start]);
+            array.DownHeap(largestIndex, count, start);
+        }
+
     }
 
 
