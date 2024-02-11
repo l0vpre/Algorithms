@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Tests", "Algorit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Benchmarks", "Algorithms.Benchmarks\Algorithms.Benchmarks.csproj", "{373B836C-F97F-46BA-9DEA-D689B9B32EB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Executable", "Algorithms.Executable\Algorithms.Executable.csproj", "{C7BDD698-FDDC-4F25-8E90-5C67C454E263}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{373B836C-F97F-46BA-9DEA-D689B9B32EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{373B836C-F97F-46BA-9DEA-D689B9B32EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{373B836C-F97F-46BA-9DEA-D689B9B32EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7BDD698-FDDC-4F25-8E90-5C67C454E263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BDD698-FDDC-4F25-8E90-5C67C454E263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7BDD698-FDDC-4F25-8E90-5C67C454E263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7BDD698-FDDC-4F25-8E90-5C67C454E263}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
