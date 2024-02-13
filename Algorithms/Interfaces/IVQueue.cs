@@ -1,8 +1,9 @@
+using System.Collections;
+
 namespace Algorithms.Interfaces;
 
-public interface IVQueue<T> : IEnumerable<T>
+public interface IVQueue<T> : ICollection
 {
-    int Count { get; }
     T? First { get; }
 
     void Clear();

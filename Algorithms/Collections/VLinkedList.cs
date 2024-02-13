@@ -13,6 +13,8 @@ public class VLinkedList<T> : IVLinkedList<T>
 
     public IVNode<T> Tail => throw new NotImplementedException();
 
+    public bool IsReadOnly => throw new NotImplementedException();
+
     public void AddHead(T item)
     {
         throw new NotImplementedException();
@@ -54,6 +56,16 @@ public class VLinkedList<T> : IVLinkedList<T>
     }
 
     IEnumerator IEnumerable.GetEnumerator()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Add(T item)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void CopyTo(T[] array, int arrayIndex)
     {
         throw new NotImplementedException();
     }

@@ -1,8 +1,8 @@
 namespace Algorithms.Interfaces;
 
-public interface IVLinkedList<T> : IEnumerable<T>
+public interface IVLinkedList<T> : ICollection<T>
 {
-    int Count { get; }
+
     IVNode<T> Head { get; }
     IVNode<T> Tail { get; }
 
@@ -10,9 +10,6 @@ public interface IVLinkedList<T> : IEnumerable<T>
 
     void AddHead(T item);
     void AddTail(T item);
-    void Clear();
-    bool Contains(T item);
     int IndexOf(T item);
-    bool Remove(T item);
     bool RemoveAt(int index);
 }

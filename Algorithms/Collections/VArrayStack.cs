@@ -9,6 +9,10 @@ public class VArrayStack<T> : IVStack<T>
 
     public T? Top => throw new NotImplementedException();
 
+    public bool IsSynchronized => throw new NotImplementedException();
+
+    public object SyncRoot => throw new NotImplementedException();
+
     public void Clear()
     {
         throw new NotImplementedException();
@@ -35,6 +39,11 @@ public class VArrayStack<T> : IVStack<T>
     }
 
     IEnumerator IEnumerable.GetEnumerator()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void CopyTo(Array array, int index)
     {
         throw new NotImplementedException();
     }

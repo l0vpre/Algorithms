@@ -1,8 +1,9 @@
+using System.Collections;
+
 namespace Algorithms.Interfaces;
 
-public interface IVStack<T> : IEnumerable<T>
+public interface IVStack<T> : ICollection
 {
-    int Count { get; }
     T? Top { get; }
 
     void Clear();

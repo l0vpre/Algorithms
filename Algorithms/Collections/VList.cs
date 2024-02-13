@@ -9,6 +9,7 @@ public class VList<T> : IVList<T>
 
     private T[] _array;
     private int _count;
+    private int _capacity;
 
     public int Count => _count;
     public bool IsReadOnly => false;
@@ -16,59 +17,112 @@ public class VList<T> : IVList<T>
     public VList()
     {
         _array = new T[InitialCapacity];
+        _capacity = InitialCapacity;
         _count = 0;
     }
 
     public T this[int index]
     {
-        get => throw new NotImplementedException();
-        set => throw new NotImplementedException();
+        get
+        {
+            if (index > _count || index < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            return _array[index];
+        }
+        set
+        {
+            if (index > _count || index < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            _array[index] = value;
+        }
     }
 
     public void Add(T item)
     {
-        if (_count == _array.Length)
+        if (_count == _array.Length - 2)
         {
-            throw new NotImplementedException();
+            Expand();
         }
 
         _array[_count] = item;
         _count++;
     }
 
+    public void Expand()
+    {
+        _capacity = _capacity * 2;
+        T[] array = new T[_capacity];
+        _array.CopyTo(array, 0);
+        _array = array;
+    }
+
     public void Clear()
     {
-        throw new NotImplementedException();
+        _count = 0;
     }
 
     public bool Contains(T item)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < _count; i++)
+        {
+            if (_array[i]!.Equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void CopyTo(T[] array, int arrayIndex)
-    {
-        throw new NotImplementedException();
-    }
-
+    public void CopyTo(T[] array, int arrayIndex) => Array.Copy(_array, 0, array, arrayIndex, _count);
     public int IndexOf(T item)
     {
-        throw new NotImplementedException();
+        for (int index = 0; index < _count; index++)
+        {
+            if (_array[index]!.Equals(item))
+            {
+                return index;
+            }
+        }
+        return -1;
     }
 
     public void Insert(int index, T item)
     {
-        throw new NotImplementedException();
+        if (_count == _array.Length)
+        {
+            Expand();
+        }
+        
+        _count++;
+        for (int i = _count; i > index; i--)
+        {
+            _array[i] = _array[i - 1];
+        }
+        _array[index] = item;
     }
 
     public bool Remove(T item)
     {
-        throw new NotImplementedException();
+        int index = IndexOf(item);
+        if (index == -1) return false;
+        RemoveAt(index);
+        return true;
     }
 
     public void RemoveAt(int index)
     {
-        throw new NotImplementedException();
+        if (index < _count)
+        {
+            for (int i = index; i < _count; i++)
+            {
+                _array[i] = _array[i + 1];
+            }
+            _count--;
+        }
     }
 
     public IEnumerator<T> GetEnumerator()
