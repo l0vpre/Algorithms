@@ -1,3 +1,4 @@
+using Algorithms.Collections;
 namespace Algorithms.Interfaces;
 
 public interface IVLinkedList<T> : ICollection<T>
