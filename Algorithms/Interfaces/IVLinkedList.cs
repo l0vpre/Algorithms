@@ -12,5 +12,6 @@ public interface IVLinkedList<T> : ICollection<T>
     void AddHead(T item);
     void AddTail(T item);
     int IndexOf(T item);
-    bool RemoveAt(int index);
+    void RemoveAt(int index);
+    
 }
