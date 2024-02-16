@@ -75,24 +75,31 @@ public static class LinkedList
     }
 
     [Theory]
-    [InlineData(0)]
-    [InlineData(5)]
-    public static void LinkedListRemove(int index)
+    [InlineData(56)]
+    [InlineData(-23)]
+    [InlineData(112)]
+    public static void LinkedListRemove(int item)
     {
-
         IVLinkedList<int> vlist = new VLinkedList<int>() { 56, 78, -23, 0, 112 };
-        LinkedList<int> list = new();
-        foreach (int item in vlist)
-        {
-            list.AddLast(item);
-        }
-        vlist.Remove(index);
-        list.Remove(index);
+        List<int> list = new(){ 56, 78, -23, 0, 112 };
+        vlist.Remove(item);
+        list.Remove(item);
         Assert.Equal(list, vlist);
-
-
-
     }
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(4)]
+    [InlineData(2)]
+    public static void LinkedListRemoveAt(int index)
+    {
+        IVLinkedList<int> vlist = new VLinkedList<int>() { 56, 78, -23, 0, 112 };
+        List<int> list = new(){ 56, 78, -23, 0, 112 };
+        vlist.RemoveAt(index);
+        list.RemoveAt(index);
+        Assert.Equal(list, vlist);
+    }
+
     [Theory]
     [InlineData(-1)]
     [InlineData(-142)]
@@ -100,6 +107,6 @@ public static class LinkedList
     public static void LinkedListGetShouldThrow(int index)
     {
         IVLinkedList<char> vlist = new VLinkedList<char> { 'l', '0', 'v', 'p', 'r', 'e' };
-        Assert.Throws<IndexOutOfRangeException>(() => { char item = vlist[index].Data; });
+        Assert.Throws<IndexOutOfRangeException>(() => { char item = vlist[index]!.Data; });
     }
 }

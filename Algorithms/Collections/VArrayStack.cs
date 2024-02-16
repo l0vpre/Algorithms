@@ -5,46 +5,35 @@ namespace Algorithms.Collections;
 
 public class VArrayStack<T> : IVStack<T>
 {
-    public int Count => throw new NotImplementedException();
+    private IVList<T> _list;
+    public VArrayStack()
+    {
+        _list = new VList<T>();
+    }
+    public int Count => _list.Count;
 
-    public T? Top => throw new NotImplementedException();
+    public T? Top => _list[^1];
 
     public bool IsSynchronized => throw new NotImplementedException();
-
     public object SyncRoot => throw new NotImplementedException();
 
-    public void Clear()
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool Contains(T item)
-    {
-        throw new NotImplementedException();
-    }
+    public void Clear() => _list.Clear();
+    public bool Contains(T item) => _list.Contains(item);
 
     public T? Pop()
     {
-        throw new NotImplementedException();
+        if (Count == 0)
+            return default;
+
+        T last = _list[^1];
+        _list.RemoveLast();
+        return last;
     }
 
-    public void Push(T item)
-    {
-        throw new NotImplementedException();
-    }
+    public void Push(T item) => _list.Add(item);
 
-    public IEnumerator<T> GetEnumerator()
-    {
-        throw new NotImplementedException();
-    }
+    public IEnumerator<T> GetEnumerator() => _list.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => _list.GetEnumerator();
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void CopyTo(Array array, int index)
-    {
-        throw new NotImplementedException();
-    }
+    public void CopyTo(Array array, int index) => _list.CopyTo((T[])array, index);
 }

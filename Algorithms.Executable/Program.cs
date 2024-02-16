@@ -1,9 +1,7 @@
 ﻿using Algorithms;
 using Algorithms.Collections;
 
-var list = new VLinkedList<int>(){5,3,77,4};
+var list = new VLinkedList<int>(){0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-foreach(int item in list)
-{
-    System.Console.WriteLine(item);
-}
+Console.WriteLine(list.GetNodeAt(5).Data);
+

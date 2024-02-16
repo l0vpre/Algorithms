@@ -125,6 +125,7 @@ public class VList<T> : IVList<T>
         }
     }
 
+    public void RemoveLast() => _count--;
     public IEnumerator<T> GetEnumerator()
         => new Enumerator(_array, _count);
 
