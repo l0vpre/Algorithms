@@ -1,7 +1,19 @@
 ﻿using Algorithms;
 using Algorithms.Collections;
 
-var list = new VLinkedList<int>(){0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+var queue = new VArrayQueue<int>();
+for(int i = 0; i < 1000; i++)
+{
+    queue.Enqueue(i);
+}
 
-Console.WriteLine(list.GetNodeAt(5).Data);
+for(int i = 0; i < 980; i++)
+{
+    queue.Dequeue();
+}
+
+foreach(var item in queue)
+{
+    System.Console.WriteLine(item);
+}
 

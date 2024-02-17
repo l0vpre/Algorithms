@@ -5,9 +5,21 @@ namespace Algorithms.Collections;
 
 public class VArrayQueue<T> : IVQueue<T>
 {
-    public int Count => throw new NotImplementedException();
+    private T[] _array;
+    private int _head;
+    private int _count;
+    const int InitialCapacity = 16;
 
-    public T? First => throw new NotImplementedException();
+    public VArrayQueue()
+    {
+        _array = new T[InitialCapacity];
+        _head = 0;
+        _count = 0;
+    }
+
+    public int Count => _count;
+
+    public T? First => _count > 0 ? _array[_head] : default;
 
     public bool IsSynchronized => throw new NotImplementedException();
 
@@ -15,36 +27,64 @@ public class VArrayQueue<T> : IVQueue<T>
 
     public void Clear()
     {
-        throw new NotImplementedException();
+        _head = 0;
+        _count = 0;
     }
 
     public bool Contains(T item)
     {
-        throw new NotImplementedException();
+        for (int i = _head; i < _head + _count; i++)
+        {
+            T it = _array[i];
+            if (it is not null && it.Equals(item))
+                return true;
+        }
+        return false;
     }
 
-    public void CopyTo(Array array, int index)
+    public void CopyTo(Array array, int index) => Array.Copy(_array, _head, array, index, _count);
+
+    private void Trim()
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < _count; i++)
+        {
+            _array[i] = _array[_head + i];
+        }
+        _head = 0;
     }
 
     public T? Dequeue()
     {
-        throw new NotImplementedException();
+        if (_count == 0)
+            return default;
+
+        T item = _array[_head];
+        _head++;
+        _count--;
+
+        if (_head >= _array.Length / 2)
+            Trim();
+
+        return item;
     }
 
     public void Enqueue(T item)
     {
-        throw new NotImplementedException();
+        if (_head + _count == _array.Length)
+            Expand();
+
+        _array[_count] = item;
+        _count++;
     }
 
-    public IEnumerator<T> GetEnumerator()
+    private void Expand()
     {
-        throw new NotImplementedException();
+        T[] newArray = new T[_array.Length * 2];
+        Array.Copy(_array, _head, newArray, 0, _count);
+        _array = newArray;
+        _head = 0;
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        throw new NotImplementedException();
-    }
+    public IEnumerator<T> GetEnumerator() => _array.Skip(_head).Take(_count).GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => _array.Skip(_head).Take(_count).GetEnumerator();
 }
