@@ -1,19 +1,21 @@
 ﻿using Algorithms;
 using Algorithms.Collections;
 
-var queue = new VArrayQueue<int>();
-for(int i = 0; i < 1000; i++)
-{
-    queue.Enqueue(i);
-}
 
-for(int i = 0; i < 980; i++)
+Dictionary<char, HashSet<(char v, double l)>> graph = new()
 {
-    queue.Dequeue();
-}
+    ['A'] = new() { ('B', 45), ('C', 9) },
+    ['B'] = new() { ('D', 7) },
+    ['C'] = new() { ('F', 32), ('E', 8) },
+    ['D'] = new() { ('E', 4) },
+    ['E'] = new(),
+    ['F'] = new()
+};
 
-foreach(var item in queue)
+graph.WriteLine();
+var bfs = GraphExtensions.BFS(graph, 'A');
+foreach (var l in bfs)
 {
-    System.Console.WriteLine(item);
+    Console.Write($"{l} ");
 }
-
+Console.WriteLine();

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Formats.Tar;
 using Algorithms.Interfaces;
 
 namespace Algorithms.Collections;
@@ -118,7 +117,7 @@ public class VLinkedList<T> : IVLinkedList<T>
         _head = newHead;
         newHead.Next = null;
         _count--;
-        
+
         return lastHeadData;
     }
 
