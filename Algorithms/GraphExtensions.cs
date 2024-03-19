@@ -27,7 +27,7 @@ public static class GraphExtensions
             visited[p] = false;
         }
 
-        VArrayQueue<T> toVisit = new();
+        VLinkedQueue<T> toVisit = new();
         toVisit.Enqueue(root);
 
         while (toVisit.Count != 0)

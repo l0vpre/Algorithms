@@ -3,6 +3,7 @@ using Algorithms.Interfaces;
 
 namespace Algorithms.Collections;
 
+// TODO: fix and add tests
 public class VArrayQueue<T> : IVQueue<T>
 {
     private T[] _array;
