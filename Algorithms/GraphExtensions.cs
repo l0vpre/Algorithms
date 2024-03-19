@@ -71,4 +71,70 @@ public static class GraphExtensions
             }
         }
     }
+
+    public static Dictionary<T, double> MinPathLengths<T>(this Dictionary<T, HashSet<(T Vertex, double Length)>> graph, T root)
+    where T : notnull
+    {
+        Dictionary<T, double> paths = new();
+        Dictionary<T, bool> visited = new();
+        foreach (var v in graph.Keys)
+        {
+            paths[v] = double.PositiveInfinity;
+            visited[v] = false;
+        }
+        paths[root] = 0;
+
+        while (true)
+        {
+            var notVisited = paths.Where(p => !visited[p.Key]);
+            if (notVisited.Count() == 0)
+                break;
+
+            var minVertex = notVisited.MinBy(p => p.Value);
+            visited[minVertex.Key] = true;
+            foreach (var v in graph[minVertex.Key].Where(p => !visited[p.Vertex]))
+            {
+                double len = v.Length + minVertex.Value;
+                if (len < paths[v.Vertex])
+                {
+                    paths[v.Vertex] = len;
+                }
+            }
+
+        }
+        return paths;
+    }
+    public static Dictionary<T, IEnumerable<T>> MinPaths<T>(this Dictionary<T, HashSet<(T Vertex, double Length)>> graph, T root)
+        where T : notnull
+    {
+        var paths = MinPathLengths(graph, root);
+        Dictionary<T, IEnumerable<T>> result = new();
+        foreach (var v in graph.Keys)
+        {
+            IEnumerable<T> MinPath()
+            {
+                double len = paths[v];
+                var currentVertex = v;
+                while (!currentVertex.Equals(root))
+                {
+                    yield return currentVertex;
+                    var p = graph
+                        .Where(p => p.Value.Any(v => v.Vertex.Equals(currentVertex)))
+                        .Select(p => (p.Key, p.Value.First(v => v.Vertex.Equals(currentVertex))))
+                        .First(p => Math.Abs(len - paths[p.Key] - p.Item2.Length) < 1e-10);
+
+                    currentVertex = p.Key;
+                    len -= p.Item2.Length;
+                }
+                yield return root;
+
+            }
+            result[v] = MinPath().Reverse();
+        }
+        return result;
+    }
+
+
+
+
 }
