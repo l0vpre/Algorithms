@@ -215,7 +215,7 @@ public static class ArraySortExtentions
         }
         for (int current = count - 1; current > 0; current--)
         {
-            (array[0+start], array[current+start]) = (array[current+start], array[0+start]);
+            (array[0 + start], array[current + start]) = (array[current + start], array[0 + start]);
             array.DownHeap(0, current, start);
         }
     }
@@ -227,25 +227,20 @@ public static class ArraySortExtentions
         int rightIndex = rootIndex * 2 + 2;
         int largestIndex = rootIndex;
 
-        if (leftIndex < count && array[largestIndex+start].CompareTo(array[leftIndex+start]) < 0)
+        if (leftIndex < count && array[largestIndex + start].CompareTo(array[leftIndex + start]) < 0)
         {
             largestIndex = leftIndex;
         }
-        if (rightIndex < count && array[largestIndex+start].CompareTo(array[rightIndex+start]) < 0)
+        if (rightIndex < count && array[largestIndex + start].CompareTo(array[rightIndex + start]) < 0)
         {
             largestIndex = rightIndex;
         }
         if (largestIndex != rootIndex)
         {
-            (array[largestIndex+start], array[rootIndex+start]) = (array[rootIndex+start], array[largestIndex+start]);
+            (array[largestIndex + start], array[rootIndex + start]) = (array[rootIndex + start], array[largestIndex + start]);
             array.DownHeap(largestIndex, count, start);
         }
-
     }
-
-
-
-
 }
 
 
