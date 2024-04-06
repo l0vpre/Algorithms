@@ -3,21 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{243BC397-E2EF-4EF3-9033-1E4C35A427F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms", "Algorithms\Algorithms.csproj", "{243BC397-E2EF-4EF3-9033-1E4C35A427F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Tests", "Algorithms.Tests\Algorithms.Tests.csproj", "{DA691B82-95CB-48C1-AD1D-33400971FBE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.Tests", "Algorithms.Tests\Algorithms.Tests.csproj", "{DA691B82-95CB-48C1-AD1D-33400971FBE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Benchmarks", "Algorithms.Benchmarks\Algorithms.Benchmarks.csproj", "{373B836C-F97F-46BA-9DEA-D689B9B32EB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.Benchmarks", "Algorithms.Benchmarks\Algorithms.Benchmarks.csproj", "{373B836C-F97F-46BA-9DEA-D689B9B32EB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Executable", "Algorithms.Executable\Algorithms.Executable.csproj", "{C7BDD698-FDDC-4F25-8E90-5C67C454E263}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.Executable", "Algorithms.Executable\Algorithms.Executable.csproj", "{C7BDD698-FDDC-4F25-8E90-5C67C454E263}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Tree", "Algorithms.Tree\Algorithms.Tree.csproj", "{6ADE0F00-3DA7-45B4-BE9D-B772A61FAA9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{243BC397-E2EF-4EF3-9033-1E4C35A427F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -36,5 +35,15 @@ Global
 		{C7BDD698-FDDC-4F25-8E90-5C67C454E263}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7BDD698-FDDC-4F25-8E90-5C67C454E263}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7BDD698-FDDC-4F25-8E90-5C67C454E263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ADE0F00-3DA7-45B4-BE9D-B772A61FAA9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ADE0F00-3DA7-45B4-BE9D-B772A61FAA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ADE0F00-3DA7-45B4-BE9D-B772A61FAA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ADE0F00-3DA7-45B4-BE9D-B772A61FAA9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99EC7669-F828-41CE-B0C5-1A6114EAB0BB}
 	EndGlobalSection
 EndGlobal

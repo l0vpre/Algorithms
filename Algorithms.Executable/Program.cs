@@ -2,21 +2,23 @@
 using Algorithms.Collections;
 
 
-VBinaryTree<int> tree = new VBinaryTree<int>();
-tree.Add(8);
-tree.Add(7);
-tree.Add(10);
-tree.Add(2);
-tree.Add(-45);
-tree.Add(234);
-tree.Add(435);
-tree.Add(23);
-tree.Add(5);
-tree.Add(57);
-tree.Add(0);
-tree.Add(72);
-tree.Add(1);
-tree.Add(23);
+VBinaryTree<int> tree =
+[
+    8,
+    7,
+    10,
+    2,
+    -45,
+    234,
+    435,
+    23,
+    5,
+    57,
+    0,
+    72,
+    1,
+    23,
+];
 System.Console.WriteLine($"my: {tree.Count}  ling: {tree.Count()}");
 foreach (var d in tree)
 {
