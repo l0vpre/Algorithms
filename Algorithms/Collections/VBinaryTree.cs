@@ -182,4 +182,24 @@ where T : notnull, IComparable
         }
     }
 
+    public void Balance()
+    {
+        List<T> elements = this.ToList();
+        Clear();
+        Balance(0, elements.Count - 1, elements);
+    }
+
+    private void Balance(int left, int right, List<T> elements)
+    {
+        if(right < left)
+        {
+            return;
+        }
+
+        int middle = (left + right) / 2;
+        Add(elements[middle]);
+        Balance(left,middle -1, elements);
+        Balance(middle+1,right, elements);
+    }
+
 }

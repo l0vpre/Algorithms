@@ -60,7 +60,8 @@ while (!Raylib.WindowShouldClose())
         }
         if(Raylib.IsKeyPressed(KeyboardKey.B))
         {
-            MessageError("No");
+            tree.Balance();
+            MessageSuccess("Tree was balanced");
         }
     }
     
